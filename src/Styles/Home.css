@@ -1,0 +1,94 @@
+.home {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Inter"
+  }
+
+  .headerContainer {
+    width: auto;
+    margin-left: 30px;
+  }
+
+  .headerContainer h1 {
+    position: absolute;
+    width: 759px;
+    height: 108px;
+    left: 725px;
+    top: 397px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 68px;
+    color: #DB4437;
+  }
+
+  .headerContainer p {
+    position: absolute;
+    width: 471px;
+    height: 30px;
+    left: 773px;
+    top: 489px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+
+color: #FF914D;
+  }
+
+  .Joinbtn {
+    position: absolute;
+    width: 306px;
+    height: 315px;
+    left: 773px;
+    top: 556px;
+
+    background: #3FB865;
+    border-radius: 10px;
+
+
+    /* Join Now */
+
+
+    position: absolute;
+    width: 206px;
+    height: 85px;
+    left: 773px;
+    top: 556px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 44px;
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+
+  .imgdec{
+    position: absolute;
+    width: 722.51px;
+    height: 562.63px;
+    left: 0px;
+    top: 258px;
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    .Home .headerContainer  {
+        display: none ;
+    }
+    .Home .imgdec {
+        display: none;
+    }
+  }
+  
