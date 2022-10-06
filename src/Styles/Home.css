@@ -8,7 +8,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: "Inter"
   }
 
   .headerContainer {
@@ -20,7 +19,7 @@
     position: absolute;
     width: 759px;
     height: 108px;
-    left: 725px;
+    left: 825px;
     top: 397px;
     font-style: normal;
     font-weight: 700;
@@ -28,12 +27,13 @@
     line-height: 68px;
     color: #DB4437;
   }
+  
 
   .headerContainer p {
     position: absolute;
     width: 471px;
     height: 30px;
-    left: 773px;
+    left: 873px;
     top: 489px;
     font-style: normal;
     font-weight: 500;
@@ -47,7 +47,7 @@ color: #FF914D;
     position: absolute;
     width: 306px;
     height: 315px;
-    left: 773px;
+    left: 873px;
     top: 556px;
 
     background: #3FB865;
@@ -60,7 +60,7 @@ color: #FF914D;
     position: absolute;
     width: 206px;
     height: 85px;
-    left: 773px;
+    left: 873px;
     top: 556px;
 
     font-style: normal;
@@ -78,7 +78,7 @@ color: #FF914D;
     position: absolute;
     width: 722.51px;
     height: 562.63px;
-    left: 0px;
+    left: 40px;
     top: 258px;
 
   }

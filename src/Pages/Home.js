@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 function Home() {
   return (
-    <div className='Home'>
+    <div className='home'>
       <div className='headerContainer'>
         <h1>Create your Productivity</h1>
         <p>Manage your time just a simple click</p>

@@ -1,0 +1,171 @@
+.Login {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .logintext {
+    width: auto;
+    margin-left: 30px;
+  }
+
+  .logintext h1 {
+    position: absolute;
+    width: 430px;
+    height: 162px;
+    left: 210px;
+    top: 279px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #E01E5A;
+
+  }
+  .logintext h2 {
+    position: absolute;
+    width: 451px;
+    height: 154px;
+    left: 199px;
+    top: 481px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #2EB67D;
+  }
+
+  .logintext h3 {
+    position: absolute;
+    width: 460px;
+    height: 154px;
+    left: 199px;
+    top: 742px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    
+    color: #ECB22E;
+  }
+.Checked1 svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 120px;
+    top: 318px;
+}
+.Checked2 svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 120px;
+    top: 525px;
+}
+
+.Checked3 svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 120px;
+    top: 795px;
+}
+.LoginBox h1{
+    position: absolute;
+    width: 154px;
+    height: 45px;
+    left: 780px;
+    top: 250px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+
+    color: #DB4437;
+}
+input[type=text] {
+position: absolute;
+width: 481px;
+height: 51px;
+left: 780px;
+top: 392px;
+
+background: rgba(204, 204, 204, 0.6);
+opacity: 0.8;
+border-radius: 12px;
+  }
+
+input[type=password] {
+position: absolute;
+width: 481px;
+height: 51px;
+left: 780px;
+top: 491px;
+
+background: rgba(204, 204, 204, 0.6);
+opacity: 0.8;
+border-radius: 12px;
+  }
+
+  button {
+    position: absolute;
+    width: 464px;
+    height: 80px;
+    left: 777px;
+    top: 599px;
+    background: #3FB865;
+    border-radius: 10px;
+    /* Join Now */
+    position: absolute;
+    width: 206px;
+    height: 85px;
+    left: 773px;
+    top: 599px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 44px;
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+
+  .LoginBox h2{
+    position: absolute;
+    width: 134px;
+    height: 36px;
+    left: 780px;
+    top: 340px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 29px;
+
+    color: #000000;
+
+  }
+  .LoginBox h3{
+    position: absolute;
+    width: 134px;
+    height: 36px;
+    left: 780px;
+    top: 440px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 29px;
+
+    color: #000000;
+
+  }
