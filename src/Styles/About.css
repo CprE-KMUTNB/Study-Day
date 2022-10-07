@@ -1,0 +1,15 @@
+.p{
+position: absolute;
+width: 490px;
+height: 70px;
+left: 175px;
+top: 628px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 58px;
+
+color: #DB4437;
+}

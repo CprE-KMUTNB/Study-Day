@@ -1,6 +1,8 @@
 import React from 'react'
 import "../Styles/Login.css"
+import {Link} from 'react-router-dom';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+
 function Login_page(){
     return (
     <div className='Login'>
@@ -8,22 +10,22 @@ function Login_page(){
             <h1>Manage your time</h1>
             <h2>Creating task with calendar</h2>
             <h3>More productivity</h3>
-            <div className='Checked1'><CheckBoxOutlinedIcon /></div>
-            <div className='Checked2'><CheckBoxOutlinedIcon /></div>
-            <div className='Checked3'><CheckBoxOutlinedIcon /></div>
         </div>
         <div className='LoginBox'>
             <h1>Login</h1>
-            <h2>Username</h2>
-            <h3>Password</h3>
-            <form>
+            <form id="contact-form" method="POST">
+                <label htmlFor="name">Username</label>
                 <input type='text' name='username' placeholder='username'></input>
+                <label htmlFor="password">Password</label>
                 <input type='password' name='password' placeholder='password'></input>
                 <button className='Loginbtn'> Login </button>
-            </form>
-            <button className='Register'> Register </button>
+            </form >
+            <p>Don't have acount yet?</p>
+            <Link to="/register">
+            <button className='Registbtn'> Register </button>
+            </Link>
         </div>
     </div>
-    )
+    );
 }
 export default Login_page
