@@ -1,0 +1,63 @@
+.Regist {
+  width: 100%;
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  }
+.RegistBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 25%;
+  background-color: #ffff;
+  border-radius: 3%;
+
+}
+.RegistBox h1{
+    margin-left: 38%;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #DB4437;
+}
+input[type=text] {
+  margin-left: 50px;
+  margin-top: 10px;
+  width: 80%;
+height: 51px;
+
+background: rgba(204, 204, 204, 0.6);
+opacity: 0.8;
+border-radius: 12px;
+  }
+
+input[type=password] {
+margin-top: 10px;
+margin-left: 50px;
+width: 80%;
+height: 51px;
+
+background: rgba(204, 204, 204, 0.6);
+opacity: 0.8;
+border-radius: 12px;
+  }
+
+.Registbtn {
+  justify-content: center;
+  border-radius: 15px;
+  margin-left: 24%;
+  margin-top: 3%;
+  width: 50%;
+  height: 50px;
+  border: none;
+  background-color: #97ed53;
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: 700;
+
+  }

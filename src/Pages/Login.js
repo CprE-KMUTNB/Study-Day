@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Styles/Login.css"
+import "../Styles/Login.css"
 import {Link} from 'react-router-dom';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
@@ -13,7 +14,7 @@ function Login_page(){
         </div>
         <div className='LoginBox'>
             <h1>Login</h1>
-            <form id="contact-form" method="POST">
+            <form id="login-form" method="POST">
                 <label htmlFor="name">Username</label>
                 <input type='text' name='username' placeholder='username'></input>
                 <label htmlFor="password">Password</label>
