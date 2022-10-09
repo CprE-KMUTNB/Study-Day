@@ -47,7 +47,6 @@ class LoginView(APIView):
         }
         return response
 
-
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
