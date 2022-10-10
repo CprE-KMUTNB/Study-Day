@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Login_page from './Pages/Login';
 import Register_page from './Pages/Register';
 import About_page from './Pages/About';
+
 import {BrowserRouter as Router ,Route, Routes} from 'react-router-dom'
 
 function App(){

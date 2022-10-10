@@ -55,6 +55,7 @@
     color: #DB4437;
 }
 input[type=text] {
+  padding: 0 5px 0 15px;
   margin-left: 50px;
   margin-top: 10px;
   width: 80%;
@@ -66,6 +67,7 @@ border-radius: 12px;
   }
 
 input[type=password] {
+padding: 0 5px 0 15px;
 margin-top: 10px;
 margin-left: 50px;
 width: 80%;
@@ -119,6 +121,7 @@ border-radius: 12px;
     color: #FFFFFF;
   }
   form {
+    margin-left: 0%;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -131,3 +134,5 @@ border-radius: 12px;
     margin-top: 10px;
     color: black;
   }
+
+
