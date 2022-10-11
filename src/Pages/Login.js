@@ -1,9 +1,14 @@
 import React , {useState} from 'react'
 import "../Styles/Login.css"
-import "../Styles/Login.css"
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 function Login_page(){
+    const navigate=useNavigate()
+
+    const MySwal = withReactContent(Swal)
 
     const [inputs, setInputs] = useState({});
 
@@ -15,8 +20,49 @@ function Login_page(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
-    }
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cookie", "jwt=token");
+
+        var raw = JSON.stringify({
+        "password": inputs.password,
+        "email": inputs.email
+        });
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+        fetch("http://127.0.0.1:8000/api/login", requestOptions)
+        .then(response => response.json())
+
+        .then(result => {
+            console.log(result)
+            if (result.jwt) {
+                MySwal.fire({
+                    html: <i>You have logged in!</i>,
+                    icon: 'success'
+                  }).then((value) => {
+                localStorage.setItem('token',result.jwt)
+                navigate('/main')
+                })
+
+            }
+            else {
+                MySwal.fire({
+                    html: <i>Username or passsword is incorrect!</i>,
+                    icon: 'error'
+                  })
+            }
+        
+        })
+        .catch(error => console.log('error', error));
+                console.log(inputs);
+            }
 
 
     return (
@@ -29,12 +75,12 @@ function Login_page(){
         <div className='LoginBox'>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Username</label>
+                <label htmlFor="email">email</label>
                 <input 
                     type="text" 
-                    name="username" 
-                    placeholder='username'
-                    value={inputs.username || ""} 
+                    name="email" 
+                    placeholder='email'
+                    value={inputs.email || ""} 
                     onChange={handleChange}/>
                 <label htmlFor="password">Password</label>
                 <input 

@@ -1,7 +1,13 @@
 import React , {useState} from 'react'
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import "../Styles/Regist.css"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 function Register_page(){
+    const navigate=useNavigate()
+
+    const MySwal = withReactContent(Swal)
 
     const [inputs, setInputs] = useState({});
 
@@ -13,6 +19,41 @@ function Register_page(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        
+        var raw = JSON.stringify({
+          "name": inputs.name,
+          "surname": inputs.surname,
+          "email": inputs.email,
+          "password": inputs.password,
+          "username": inputs.username
+        });
+        
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+        
+        fetch("http://127.0.0.1:8000/api/register", requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            console.log(result)
+            if (result.id) {
+                navigate('/regist_complete')
+            }
+            else {
+              MySwal.fire({
+                  html: <i>{result.email}</i>,
+                  icon: 'error'
+                })
+          }
+        
+        })
+          .catch(error => console.log('error', error));
         console.log(inputs);
     }
 
@@ -34,13 +75,13 @@ function Register_page(){
                     value={inputs.name || ""} 
                     onChange={handleChange}/>
 
-                    <label htmlFor="lastname">Last name</label>
+                    <label htmlFor="surname">surname</label>
 
                     <input 
                     type="text" 
-                    name="lastname" 
-                    placeholder='lastname'
-                    value={inputs.lastname || ""} 
+                    name="surname" 
+                    placeholder='surname'
+                    value={inputs.surname || ""} 
                     onChange={handleChange}/>
 
                     <label htmlFor="Email">Email</label>

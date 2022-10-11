@@ -1,0 +1,76 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center
+
+}
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";  
+    color: #4285F4; 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+  }
+
+li{
+    position: absolute;
+    width: 522px;
+    height: 46px;
+    left: 816px;
+    top: 350px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 39px;
+
+    color: #ECB22E;
+
+}
+
+
+.container h1 {
+    position: absolute;
+    width: 789px;
+    height: 98px;
+    left: 700px;
+    top: 156px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 116px;
+
+    color: #DB4437;
+
+  }
+
+.container img{
+    position: absolute;
+    width: 608px;
+    height: 476px;
+    left: 41px;
+    top: 330px;
+
+}
+.container button{
+
+        position: absolute;
+        width: 230.55px;
+        height: 78px;
+        left: 820px;
+        top: 452px;
+        border-radius: 15px;
+        border: none;
+        background-color: #3FB865;
+        color: whitesmoke;
+        font-size: 25px;
+        font-weight: 700;
+    
+}
+  
