@@ -1,0 +1,10 @@
+.componentmain{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.componentmain .rightside {
+    background-color: white;
+    margin-left: 0%;
+}
