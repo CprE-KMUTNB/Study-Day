@@ -23,7 +23,7 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data['email']
         password = request.data['password']
-
+        
         user = models.User.objects.filter(email=email).first()
 
         if user is None:
@@ -43,6 +43,7 @@ class LoginView(APIView):
         
         response.set_cookie(key = 'jwt', value = 'token', httponly = True)
         response.data = {
+            'username' : models.User.objects.values_list("username", flat=True).filter(email=email)[0],
             'jwt' : token
         }
         return response
