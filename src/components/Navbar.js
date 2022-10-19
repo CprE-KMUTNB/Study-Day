@@ -1,19 +1,26 @@
 import React , {useState} from 'react';
-import Logo from '../img/Logo.png';
-import {Link} from 'react-router-dom';
+import Logo from '../img/Icon.svg';
+import {Link,useNavigate} from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../Styles/Navbar.css'
+import { Dropdown } from 'antd';
 
 
 function Navbar() {
-
+    const auth =localStorage.getItem('username');
+    const nevigate = useNavigate();
+    const logout = ()=>{
+      localStorage.clear();
+      nevigate('/login')
+      
+    }
     const [openLinks, setOpenLinks]=useState(false);
     const toggleNavbar =() =>{
       setOpenLinks(!openLinks);
     };
   return (
     <div className='navbar'>
-        <div className='leftSide' id={openLinks ?"open" : "close"}>
+        <div className='leftSide' id={openLinks ?"open" : "close"}> 
           <Link to='/'>
           <img src={Logo} />
           </Link>
@@ -23,15 +30,28 @@ function Navbar() {
             <Link to='/login'> Login</Link>
           </div>
         </div>
-        <div className='rightSide'>
-          <Link to='/'> Home</Link>
-          <Link to='/about'> About us</Link>
-          <Link to='/login'> Login</Link>
-          <button onClick={toggleNavbar}>
-          <ReorderIcon />
-          </button>
-          
-        </div>
+        {
+              auth ? 
+                <div className='rightSide' >
+                  <Link to='/'> Home</Link>
+                  <Link to='/about'> About us</Link>
+                  <Link onClick={logout} to='/login'>  Logout   </Link>
+
+                  <button onClick={toggleNavbar}>
+                  <ReorderIcon />
+                  </button>
+                
+                </div>
+                : 
+                <div className='rightSide'>
+                  <Link to='/'> Home</Link>
+                  <Link to='/about'> About us</Link>
+                  <Link to='/login'> Login</Link>
+                  <button onClick={toggleNavbar}>
+                  <ReorderIcon />
+                  </button>
+                </div>
+        }
     </div>
   );
 }

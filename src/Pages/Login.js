@@ -48,6 +48,7 @@ function Login_page(){
                     icon: 'success'
                   }).then((value) => {
                 localStorage.setItem('token',result.jwt)
+                localStorage.setItem('username',result.username)
                 navigate('/main')
                 })
 

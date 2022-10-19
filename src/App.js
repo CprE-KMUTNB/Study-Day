@@ -1,3 +1,4 @@
+import React  from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from './Pages/Home'
@@ -7,6 +8,7 @@ import About_page from './Pages/About';
 import Main_page from './Pages/main'
 import Regist_success from './Pages/regist_complete'
 import {BrowserRouter as Router ,Route, Routes} from 'react-router-dom'
+
 
 function App(){
   return (

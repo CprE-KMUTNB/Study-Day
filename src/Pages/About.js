@@ -1,8 +1,13 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 import colorsthemes from '../img/Group 40.svg';
 import '../Styles/About.css'
 import Someimage from '../img/Group 35.svg';
+import { Typewriter } from 'react-simple-typewriter'
+import Api from'../img/Api.png'
+
 function About_page(){
+
+
     return (
         <div className='About'>
             <div className='leftside'>
@@ -18,6 +23,39 @@ function About_page(){
                 </div>
             </div>
             <div className='rightside'>
+                <div class="polaroid">
+                    <div className='Mile'>
+                        <img src={Api}/>
+                    </div>
+                    <div class="container">
+                        <Typewriter
+                                words={["Hello I'm Apirawit", 'AKA. Mile', 'Backend Developer', ]}
+                                loop={Infinity}
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={3000}
+                            />
+                    </div>
+            
+                </div>
+                <div class="polaroid2">
+                    <div className='Preme'>
+                        <img src={Api}/>
+                    </div>
+                    <div class="container2">
+                        <Typewriter
+                                words={["Hello I'm Thanyapat", 'AKA. ᴘʀᴇᴍᴇ ', 'Frontend Developer', ]}
+                                loop={Infinity}
+                                typeSpeed={65}
+                                deleteSpeed={40}
+                                delaySpeed={3000}
+                            />
+                    </div>
+            
+                </div>
+
+
+
             </div>
         </div>
     );
