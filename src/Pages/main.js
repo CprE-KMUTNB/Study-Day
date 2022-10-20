@@ -9,7 +9,6 @@ import Modal from 'react-bootstrap/Modal';
 
 import {createEvent , listEvent} from '../components/function/fullcalendar';
 
-//import Modal from '../components/Modal'
 import {useNavigate} from 'react-router-dom'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/Main.css'

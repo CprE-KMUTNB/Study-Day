@@ -1,4 +1,4 @@
-.navbar {
+.mynavbar {
   width: 100%;
   height: 100px;
   background-color: white;
@@ -6,7 +6,7 @@
   flex-direction: row;
 }
 
-.navbar .leftSide {
+.mynavbar .leftSide {
   flex: 100%;
   height: 100%;
   display: flex;
@@ -14,11 +14,11 @@
   padding-left: 30px;
 }
 
-.navbar .leftSide img {
+.mynavbar .leftSide img {
   width: 55px;
 }
 
-.navbar .rightSide {
+.mynavbar .rightSide {
   flex: 50%;
   height: 100%;
   display: flex;
@@ -26,73 +26,73 @@
   justify-content: center;
 }
 
-.navbar a {
+.mynavbar a {
   color: #121619;
   text-decoration: none;
   margin: 20px;
 }
 
-.navbar .rightSide button {
+.mynavbar .rightSide button {
   background-color: transparent;
   border: none;
   color: #121619;
   cursor: pointer;
 }
 
-.navbar .rightSide svg {
+.mynavbar .rightSide svg {
   font-size: 40px;
 }
 
-.navbar #open {
+.mynavbar #open {
   padding-left: 0px;
 }
-.navbar #open img {
+.mynavbar #open img {
   width: 50px;
 }
 
-.navbar #close img {
+.mynavbar #close img {
   display: inherit;
 }
 
-.navbar #open .hiddenLinks {
+.mynavbar #open .hiddenLinks {
   display: inherit;
   margin-left: 60px;
 }
 
-.navbar #close .hiddenLinks {
+.mynavbar #close .hiddenLinks {
   display: none;
 }
 
-.navbar #open a {
+.mynavbar #open a {
   width: 70px;
   margin: 5px;
 }
 @media only screen and (max-width: 900px) {
-  .navbar .rightSide a {
+  .mynavbar .rightSide a {
     width: 70px;
   }
-  .navbar .leftSide {
+  .myavbar .leftSide {
     padding-left: 50px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar .rightSide a {
+  .mynavbar .rightSide a {
     display: none;
   }
 
-  .navbar .rightSide {
-    justify-content: flex-end;
+  .mynavbar .rightSide {
     padding-right: 50px;
   }
 
-  .navbar .rightSide button {
+  .mynavbar .rightSide button {
     display: inherit;
+    justify-content: flex-end;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .navbar .rightSide button {
+  .mynavbar .rightSide button {
     display: none;
   }
 

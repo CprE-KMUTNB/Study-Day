@@ -3,7 +3,7 @@ import Logo from '../img/Icon.svg';
 import {Link,useNavigate} from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../Styles/Navbar.css'
-import { Dropdown } from 'antd';
+
 
 
 function Navbar() {
@@ -19,7 +19,7 @@ function Navbar() {
       setOpenLinks(!openLinks);
     };
   return (
-    <div className='navbar'>
+    <div className='mynavbar'>
         <div className='leftSide' id={openLinks ?"open" : "close"}> 
           <Link to='/'>
           <img src={Logo} />
