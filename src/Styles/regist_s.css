@@ -23,8 +23,8 @@ li{
     position: absolute;
     width: 522px;
     height: 46px;
-    left: 816px;
-    top: 350px;
+    left: 756px;
+    top: 410px;
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
@@ -39,11 +39,11 @@ li{
     position: absolute;
     width: 789px;
     height: 98px;
-    left: 700px;
-    top: 156px;
+    left: 590px;
+    top: 250px;
     font-style: normal;
     font-weight: 700;
-    font-size: 76px;
+    font-size: 80px;
     line-height: 116px;
 
     color: #DB4437;
@@ -63,8 +63,8 @@ li{
         position: absolute;
         width: 230.55px;
         height: 78px;
-        left: 820px;
-        top: 452px;
+        left: 920px;
+        top: 500px;
         border-radius: 15px;
         border: none;
         background-color: #3FB865;

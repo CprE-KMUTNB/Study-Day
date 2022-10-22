@@ -38,7 +38,9 @@ const Main = () => {
       console.log(err)
     })
   }
-
+  const subject =[
+    {}
+  ]
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleOk=()=>{
@@ -73,8 +75,21 @@ const Main = () => {
     <div className='componentmain'>
       <div className='leftside'>
           <h1>Welcome {localStorage.getItem('username')}</h1>
-          <div className='Subject'>Subject
-
+          <div className='Subject'>
+            <h1>Subject</h1>
+            <input placeholder='Enter subject'></input>
+            <button>ok</button>
+            <select type ='color' name ='color' onChange = {onChangeValues} >
+                      <option value=''>blue</option>
+                      <option value='#DB4437'>red</option>
+                      <option value ='#8DDD6A'>green</option>
+                      <option value='#FFBD59'>orange</option>
+              </select>
+          </div>
+          <div className='Riminder'>
+                <h1>Reminder</h1>
+                <input placeholder='Enter reminder'></input>
+                <button>Ok</button>
           </div>
             
       </div>
@@ -87,10 +102,10 @@ const Main = () => {
             }}
             events={[
               //events
-              {title:'"Hello"',start:"2022-10-17",end:"2022-10-20",color:"#8DDD6A"},
-              { title: 'event 2', start: '2022-10-03' },
-              {title:'event 3',start:'2022-10-20',end:'2022-10-25',color:'red'},
-              { title: 'event 4', start: '2022-10-03' },
+              {title:'ส่งงาน FontEnd',start:"2022-10-21",end:"2022-10-23",color:"#8DDD6A"},
+              { title: 'ส่งงาน BackEnd', start: '2022-10-28' ,end:"2022-10-30",color:'#FFBD59'},
+              {title:'สอบ Discrete',start:'2022-10-11',end:'2022-10-13',color:'red'},
+              { title: 'สอบ Logic', start: '2022-10-03' },
 
             ]}
             selectable={true}
@@ -103,7 +118,7 @@ const Main = () => {
                   <Modal.Body>
                     <input name = 'tittle' onChange = {onChangeValues} placeholder='tittle'/>
                     <select type ='color' name ='color' onChange = {onChangeValues} >
-                      <option value=''>blue</option>
+                      <option value=''>--Select color--</option>
                       <option value='#DB4437'>red</option>
                       <option value ='#8DDD6A'>green</option>
                       <option value='#FFBD59'>orange</option>

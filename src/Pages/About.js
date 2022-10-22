@@ -4,6 +4,7 @@ import '../Styles/About.css'
 import Someimage from '../img/Group 35.svg';
 import { Typewriter } from 'react-simple-typewriter'
 import Api from'../img/Api.png'
+import Typ from'../img/Typ.png'
 
 function About_page(){
 
@@ -40,7 +41,7 @@ function About_page(){
                 </div>
                 <div class="polaroid2">
                     <div className='Preme'>
-                        <img src={Api}/>
+                        <img src={Typ}/>
                     </div>
                     <div class="container2">
                         <Typewriter
