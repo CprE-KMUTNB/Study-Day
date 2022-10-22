@@ -30,7 +30,7 @@ function About_page(){
                     </div>
                     <div class="container">
                         <Typewriter
-                                words={["Hello I'm Apiravit", ' Mild', 'Backend Developer', ]}
+                                words={["Hello I'm Apiravit", 'AKA Mild', 'Backend Developer', ]}
                                 loop={Infinity}
                                 typeSpeed={70}
                                 deleteSpeed={50}
@@ -45,7 +45,7 @@ function About_page(){
                     </div>
                     <div class="container2">
                         <Typewriter
-                                words={["Hello I'm Thanyapat", 'Preme ', 'Frontend Developer', ]}
+                                words={["Hello I'm Thanyapat", 'AKA Preme ', 'Frontend Developer', ]}
                                 loop={Infinity}
                                 typeSpeed={65}
                                 deleteSpeed={40}
