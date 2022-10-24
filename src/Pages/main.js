@@ -19,7 +19,7 @@ const Main = () => {
   const navigate=useNavigate()
   const [show, setShow] = useState(false);
   const [value,setValue] = useState({
-    tittle:'',
+    title:'',
     start:'',
     end:''
   })
@@ -116,7 +116,7 @@ const Main = () => {
                     <Modal.Title>Adding Event</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <input name = 'tittle' onChange = {onChangeValues} placeholder='tittle'/>
+                    <input name = 'title' onChange = {onChangeValues} placeholder='title'/>
                     <select type ='color' name ='color' onChange = {onChangeValues} >
                       <option value=''>--Select color--</option>
                       <option value='#DB4437'>red</option>
