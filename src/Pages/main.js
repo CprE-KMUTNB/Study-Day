@@ -5,25 +5,48 @@ import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import timeGridPlugin from '@fullcalendar/timegrid'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
 
 
 import {createEvent , listEvent} from '../components/function/fullcalendar';
 
 import {useNavigate} from 'react-router-dom'
-//import 'bootstrap/dist/css/bootstrap.min.css';
+
 import '../Styles/Main.css'
 
 
 
 const Main = () => {
   const navigate=useNavigate()
+
+
   const [show, setShow] = useState(false);
+
+  const [showevent,setShowevent] = useState(false);
+
+  const handleCloseevent = () => setShowevent(false);
+  const handleShowevent = () => setShowevent(true);
+  const handleOkevent=()=>{
+    setShowevent(false);
+  }
+
   const [value,setValue] = useState({
     title:'',
     start:'',
     end:''
   })
   const [events, setEvents] = useState([]);
+
+  const hadleClick = (info)=>{
+    handleShowevent()
+    const id = info.event._def.defId
+    const titleevent = info.event._def.title
+    console.log(info)
+    console.log(id)
+    console.log(titleevent)
+    localStorage.setItem('title',titleevent)
+  }
 
   useEffect(()=>{
     loadData()
@@ -42,7 +65,9 @@ const Main = () => {
     {}
   ]
   const handleClose = () => setShow(false);
+
   const handleShow = () => setShow(true);
+
   const handleOk=()=>{
     //sent to API
     console.log(value) //แทน function value ={ tittle : start : end}
@@ -56,7 +81,6 @@ const Main = () => {
     setShow(false);
   }
 
-  
   const handleSelect=(info)=>{
     handleShow();
     console.log(info)
@@ -70,6 +94,9 @@ const Main = () => {
     console.log(e.target.value)
     setValue({...value,[e.target.name]:e.target.value})
   }
+  const handdleChange=(info)=>{
+    console.log(info)
+  }
 
   return (
     <div className='componentmain'>
@@ -77,6 +104,7 @@ const Main = () => {
           <h1>Welcome {localStorage.getItem('username')}</h1>
           <div className='Subject'>
             <h1>Subject</h1>
+            <LibraryBooksRoundedIcon/>
             <input placeholder='Enter subject'></input>
             <button>ok</button>
             <select type ='color' name ='color' onChange = {onChangeValues} >
@@ -110,6 +138,10 @@ const Main = () => {
             ]}
             selectable={true}
             select={handleSelect}
+            eventClick={hadleClick}
+            editable={true}
+            eventChange={handdleChange}
+
           />
           <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
@@ -129,6 +161,26 @@ const Main = () => {
                       Close
                     </Button>
                     <Button variant="primary" onClick={handleOk}>
+                      Ok
+                    </Button>
+                  </Modal.Footer>
+            </Modal>
+
+            <Modal show={showevent} onHide={handleCloseevent}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Show event</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <h1>{localStorage.getItem('title')}</h1>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="danger">Delete
+                      <DeleteForeverIcon fontSize='small'></DeleteForeverIcon>
+                    </Button>
+                    <Button variant="secondary" onClick={handleCloseevent}>
+                      Close
+                    </Button>
+                    <Button variant="primary" onClick={handleOkevent}>
                       Ok
                     </Button>
                   </Modal.Footer>
