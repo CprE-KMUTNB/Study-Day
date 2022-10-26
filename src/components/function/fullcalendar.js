@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const createEvent = async(values)=>
-    await axios.post() //API Path,values
+    await axios.post('http://127.0.0.1:8000/home/calender') //API Path,values
 
 export const listEvent = async()=>
-    await axios.get() //API Path
+    await axios.get('http://127.0.0.1:8000/home/calender') //API Path
