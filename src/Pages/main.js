@@ -70,7 +70,7 @@ const Main = () => {
 
   const handleOk=()=>{
     //sent to API
-    console.log(value) //แทน function value ={ tittle : start : end}
+    console.log(value) 
     createEvent(value)
     .then (res=>{
       console.log(res.data)
@@ -122,69 +122,68 @@ const Main = () => {
             
       </div>
       <div className='rightside'>
-        <FullCalendar
-            plugins={[ dayGridPlugin, timeGridPlugin,interactionPlugin ]}
-            headerToolbar={{
-              center:'title',
-              left:'dayGridMonth,timeGridWeek,timeGridDay'
-            }}
-            events={[
-              //events
-              {title:'ส่งงาน FontEnd',start:"2022-10-21",end:"2022-10-23",color:"#8DDD6A"},
-              { title: 'ส่งงาน BackEnd', start: '2022-10-28' ,end:"2022-10-30",color:'#FFBD59'},
-              {title:'สอบ Discrete',start:'2022-10-11',end:'2022-10-13',color:'red'},
-              { title: 'สอบ Logic', start: '2022-10-03' },
+          <div className='calendar'>
+          <FullCalendar
+              plugins={[ dayGridPlugin, timeGridPlugin,interactionPlugin ]}
+              headerToolbar={{
+                center:'title',
+                left:'dayGridMonth,timeGridWeek,timeGridDay'
+              }}
+              events={
+                events
+              }
+              selectable={true}
+              select={handleSelect}
+              eventClick={hadleClick}
+              editable={true}
+              eventChange={handdleChange}
 
-            ]}
-            selectable={true}
-            select={handleSelect}
-            eventClick={hadleClick}
-            editable={true}
-            eventChange={handdleChange}
+            />
+            <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Adding Event</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <input name = 'title' onChange = {onChangeValues} placeholder='title'/>
+                      <select type ='color' name ='color' onChange = {onChangeValues} >
+                        <option value=''>--Select color--</option>
+                        <option value='#DB4437'>red</option>
+                        <option value ='#8DDD6A'>green</option>
+                        <option value='#FFBD59'>orange</option>
+                      </select>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={handleOk}>
+                        Ok
+                      </Button>
+                    </Modal.Footer>
+              </Modal>
 
-          />
-          <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Adding Event</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <input name = 'title' onChange = {onChangeValues} placeholder='title'/>
-                    <select type ='color' name ='color' onChange = {onChangeValues} >
-                      <option value=''>--Select color--</option>
-                      <option value='#DB4437'>red</option>
-                      <option value ='#8DDD6A'>green</option>
-                      <option value='#FFBD59'>orange</option>
-                    </select>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Close
-                    </Button>
-                    <Button variant="primary" onClick={handleOk}>
-                      Ok
-                    </Button>
-                  </Modal.Footer>
-            </Modal>
+              <Modal show={showevent} onHide={handleCloseevent}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Show event</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <h1>{localStorage.getItem('title')}</h1>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="danger">Delete
+                        <DeleteForeverIcon fontSize='small'></DeleteForeverIcon>
+                      </Button>
+                      <Button variant="secondary" onClick={handleCloseevent}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={handleOkevent}>
+                        Ok
+                      </Button>
+                    </Modal.Footer>
+              </Modal>
+          </div>
+          
 
-            <Modal show={showevent} onHide={handleCloseevent}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Show event</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <h1>{localStorage.getItem('title')}</h1>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="danger">Delete
-                      <DeleteForeverIcon fontSize='small'></DeleteForeverIcon>
-                    </Button>
-                    <Button variant="secondary" onClick={handleCloseevent}>
-                      Close
-                    </Button>
-                    <Button variant="primary" onClick={handleOkevent}>
-                      Ok
-                    </Button>
-                  </Modal.Footer>
-            </Modal>
       </div>
       
     </div>
