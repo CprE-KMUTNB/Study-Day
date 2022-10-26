@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
-
+import Folder from '../components/Folder'
 
 import {createEvent , listEvent} from '../components/function/fullcalendar';
 
@@ -32,6 +32,7 @@ const Main = () => {
   }
 
   const [value,setValue] = useState({
+    "user": "1",
     title:'',
     start:'',
     end:''
@@ -73,6 +74,8 @@ const Main = () => {
     console.log(value) 
     createEvent(value)
     .then (res=>{
+      setValue({...value,tittle:''})
+      loadData()
       console.log(res.data)
 
     }).catch(err=>{
@@ -108,11 +111,18 @@ const Main = () => {
             <input placeholder='Enter subject'></input>
             <button>ok</button>
             <select type ='color' name ='color' onChange = {onChangeValues} >
-                      <option value=''>blue</option>
+                      <option value=''>--Select tag--</option>
+                      <option value='#4285F4'>blue</option>
                       <option value='#DB4437'>red</option>
                       <option value ='#8DDD6A'>green</option>
                       <option value='#FFBD59'>orange</option>
-              </select>
+            </select>
+            <ul>
+              <li>Adele</li>
+              <li>Agnes</li>
+              <li>Billy</li>
+              <li>Bob</li>
+            </ul>
           </div>
           <div className='Riminder'>
                 <h1>Reminder</h1>
@@ -147,9 +157,14 @@ const Main = () => {
                       <input name = 'title' onChange = {onChangeValues} placeholder='title'/>
                       <select type ='color' name ='color' onChange = {onChangeValues} >
                         <option value=''>--Select color--</option>
-                        <option value='#DB4437'>red</option>
-                        <option value ='#8DDD6A'>green</option>
-                        <option value='#FFBD59'>orange</option>
+                        <option value='#4285F4'>blue
+                        </option>
+                        <option value='#DB4437'>red
+                        </option>
+                        <option value ='#8DDD6A'>green
+                        </option>
+                        <option value='#FFBD59'>orange
+                        </option>
                       </select>
                     </Modal.Body>
                     <Modal.Footer>

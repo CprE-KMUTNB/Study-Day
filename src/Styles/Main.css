@@ -5,7 +5,7 @@
 }
 .componentmain .leftside{
     text-align: center;
-    background-color: #E57C73;
+
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -21,9 +21,12 @@
     text-align: center;
     width: 70%;
     height: 50%;
-    background-color: #E57C73;
+    background-image: linear-gradient(to left bottom, #e57c73, #e17877, #dc757c, #d6727f, #d06f83, #ca6d86, #c46b88, #bd698a, #b5678c, #ae668e, #a5658f, #9d6490);
 }
+
 .componentmain .rightside .calendar{
+    
+    border-radius: 1%;
     margin-top: 5%;
     background-color: #ffff;
     margin-left: 5%;
@@ -40,19 +43,10 @@
     text-align: center;
     width: 70%;
     height: 40%;
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-.Subject h1 {
-    font-size: 350%;
-    text-align: center;
-    margin-top: 5%;
-    font-weight: 570;
-    font-size: 48px;
-    margin-left: 3%;
-    color: #E01E5A;
-}
 
 
 .Subject h1 {
@@ -72,7 +66,7 @@
     margin-top: 30px;
     width: 70%;
     height: 40%;
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
