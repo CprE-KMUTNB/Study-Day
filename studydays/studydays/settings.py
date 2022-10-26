@@ -56,6 +56,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'studydays.urls'
 
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES' : ('Bearer',),
+
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
