@@ -47,7 +47,9 @@ function Login_page(){
                     html: <i>You have logged in!</i>,
                     icon: 'success'
                   }).then((value) => {
+                console.log(result)
                 localStorage.setItem('token',result.jwt)
+                localStorage.setItem('userid',result.id) //<-- When logic there's no id
                 localStorage.setItem('username',result.username)
                 navigate('/main')
                 })
