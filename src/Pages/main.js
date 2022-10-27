@@ -114,8 +114,9 @@ const Main = () => {
       user:1,
       color:localStorage.getItem('color')
     }
-    console.log(value)
-    updateEvent(value)
+    console.log(value.id)
+    const idl=value.id
+    updateEvent(value,idl)
       .then(res=>{
         console.log(res)
       }).catch(err=>{
@@ -123,7 +124,8 @@ const Main = () => {
       })
   }
   const handdleDelete=(info)=>{
-    deleteEvent(value)
+    const ide=localStorage.getItem('eventid')
+    deleteEvent(ide)
       .then(res=>{
         loadData()
         console.log(res)
