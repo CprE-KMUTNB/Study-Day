@@ -7,9 +7,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
-import Folder from '../components/Folder'
 
-import {createEvent , listEvent} from '../components/function/fullcalendar';
+import CreateIcon from '@mui/icons-material/Create';
+
+import {createEvent , listEvent ,updateEvent,deleteEvent} from '../components/function/fullcalendar';
 
 import {useNavigate} from 'react-router-dom'
 
@@ -35,18 +36,22 @@ const Main = () => {
     "user": "1",
     title:'',
     start:'',
-    end:''
+    end:'',
   })
   const [events, setEvents] = useState([]);
 
   const hadleClick = (info)=>{
-    handleShowevent()
-    const id = info.event._def.defId
-    const titleevent = info.event._def.title
     console.log(info)
-    console.log(id)
+    handleShowevent()
+    const eventid = info.event._def.publicId
+    const titleevent = info.event._def.title
+    const color = info.event._def.ui.backgroundColor
+    console.log(info)
+    console.log(eventid)
     console.log(titleevent)
     localStorage.setItem('title',titleevent)
+    localStorage.setItem('color',color)
+    localStorage.setItem('eventid',eventid)
   }
 
   useEffect(()=>{
@@ -93,14 +98,42 @@ const Main = () => {
       end:info.endStr
     })
   }
+
   const onChangeValues=(e)=>{
     console.log(e.target.value)
     setValue({...value,[e.target.name]:e.target.value})
   }
   const handdleChange=(info)=>{
     console.log(info)
+    console.log(info.event.startStr,info.event.endStr,info.event.title,info.event.title,info.event._def.publicId)
+    const value ={
+      id:info.event._def.publicId,
+      start:info.event.startStr,
+      end:info.event.endStr,
+      title:info.event._def.title,
+      user:1,
+      color:localStorage.getItem('color')
+    }
+    console.log(value)
+    updateEvent(value)
+      .then(res=>{
+        console.log(res)
+      }).catch(err=>{
+        console.log(err)
+      })
   }
+  const handdleDelete=(info)=>{
+    deleteEvent(value)
+      .then(res=>{
+        loadData()
+        console.log(res)
+      }).catch(err=>{
+        console.log(err)
+      })
+      setShowevent(false);
 
+
+  }
   return (
     <div className='componentmain'>
       <div className='leftside'>
@@ -182,10 +215,15 @@ const Main = () => {
                       <Modal.Title>Show event</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <h1>{localStorage.getItem('title')}</h1>
+                      <h1>{localStorage.getItem('title')}
+                        <CreateIcon>
+
+                        </CreateIcon>
+                      </h1>
+
                     </Modal.Body>
                     <Modal.Footer>
-                      <Button variant="danger">Delete
+                      <Button variant="danger" onClick={handdleDelete}>Delete
                         <DeleteForeverIcon fontSize='small'></DeleteForeverIcon>
                       </Button>
                       <Button variant="secondary" onClick={handleCloseevent}>
