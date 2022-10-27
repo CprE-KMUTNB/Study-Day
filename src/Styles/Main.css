@@ -21,7 +21,8 @@
     text-align: center;
     width: 70%;
     height: 50%;
-    background-image: linear-gradient(to left bottom, #e57c73, #e17877, #dc757c, #d6727f, #d06f83, #ca6d86, #c46b88, #bd698a, #b5678c, #ae668e, #a5658f, #9d6490);
+    background-image: linear-gradient(to left top, #e57c73, #e17877, #dc757c, #d6727f, #d06f83, #d6727f, #e17877, #d6727f, #d6727f, #dc757c, #e17877, #e57c73);
+
 }
 
 .componentmain .rightside .calendar{
