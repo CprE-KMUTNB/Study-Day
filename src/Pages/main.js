@@ -21,7 +21,7 @@ import '../Styles/Main.css'
 const Main = () => {
   const navigate=useNavigate()
 
-
+  const user_id = localStorage.getItem('userid')
   const [show, setShow] = useState(false);
 
   const [showevent,setShowevent] = useState(false);
@@ -33,7 +33,7 @@ const Main = () => {
   }
 
   const [value,setValue] = useState({
-    "user": '4', // <-- Problem
+    "user": user_id, // <-- Problem
     title:'',
     start:'',
     end:'',
@@ -105,16 +105,16 @@ const Main = () => {
   }
   const handdleChange=(info)=>{
     console.log(info)
-    console.log(info.event.startStr,info.event.endStr,info.event.title,info.event.title,info.event._def.publicId)
+    
     const value ={
       id:info.event._def.publicId,
       start:info.event.startStr,
       end:info.event.endStr,
       title:info.event._def.title,
-      user:1,
+      user:user_id, //<-- Problem !!!!!
       color:localStorage.getItem('color')
     }
-    console.log(value.id)
+    console.log(value)
     const idl=value.id
     updateEvent(value,idl)
       .then(res=>{
