@@ -43,6 +43,7 @@ class LoginView(APIView):
         
         response.set_cookie(key = 'jwt', value = 'token', httponly = True)
         response.data = {
+            'id' : models.User.objects.values_list("id", flat=True).filter(email=email)[0],
             'username' : models.User.objects.values_list("username", flat=True).filter(email=email)[0],
             'jwt' : token
         }
