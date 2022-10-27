@@ -4,7 +4,7 @@ from http.client import HTTPResponse
 from urllib import response
 from django.shortcuts import render
 from django.http import Http404
-from calender.decode import decode_access_token
+from calender.token import decode_access_token
 from login.models import User
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -22,9 +22,16 @@ class EventView(APIView):
         return Response(serializers.data)
 
     def get(self, request, format = None):
+        auth = get_authorization_header(request).split()
 
-        serializers = EventSerializer(models.Event.objects.all(), many = True)
+        if auth and len(auth)==2:
+            token = auth[1].decode('utf-8')
+            id = decode_access_token(token)
+
+        
+        serializers = EventSerializer(models.Event.objects.get_all_events(user=id), many = True)
         return Response(serializers.data)
+
 class EventManager(APIView):
     def get_object(self, pk):
         try:

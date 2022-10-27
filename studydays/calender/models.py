@@ -16,7 +16,7 @@ class Event(models.Model):
     """ Event model """
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="events")
-    title = models.CharField(max_length=200, unique = True)
+    title = models.CharField(max_length=200)
     start = models.CharField(max_length=200)
     end = models.CharField(max_length=200)
     color = models.CharField(max_length=200)
