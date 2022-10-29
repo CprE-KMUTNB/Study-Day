@@ -15,6 +15,7 @@ import {createEvent , listEvent ,updateEvent,deleteEvent} from '../components/fu
 import {useNavigate} from 'react-router-dom'
 
 import '../Styles/Main.css'
+import { Cookie } from '@mui/icons-material'
 
 
 
@@ -28,7 +29,26 @@ const Main = () => {
 
   const handleCloseevent = () => setShowevent(false);
   const handleShowevent = () => setShowevent(true);
+
   const handleOkevent=()=>{
+    const edit_value ={
+      id:localStorage.getItem('eventid'),
+      start:localStorage.getItem('start'),
+      end:localStorage.getItem('end'),
+      title:value.title,
+      user:value.user, //<-- Problem !!!!!
+      color:value.color
+    }
+    console.log(edit_value) 
+    updateEvent(edit_value,edit_value.id)
+    .then (res=>{
+      setValue({...value,tittle:''})
+      loadData()
+      console.log(res.data)
+
+    }).catch(err=>{
+      console.log(err)
+    })
     setShowevent(false);
   }
 
@@ -45,17 +65,20 @@ const Main = () => {
     handleShowevent()
     const eventid = info.event._def.publicId
     const titleevent = info.event._def.title
-    const color = info.event._def.ui.backgroundColor
+    const start = info.event.startStr
+    const end = info.event.endStr
     console.log(info)
     console.log(eventid)
     console.log(titleevent)
     localStorage.setItem('title',titleevent)
-    localStorage.setItem('color',color)
     localStorage.setItem('eventid',eventid)
+    localStorage.setItem('start',start)
+    localStorage.setItem('end',end)
   }
 
   useEffect(()=>{
     loadData()
+
   },[])
 
   const loadData=()=>{
@@ -67,9 +90,6 @@ const Main = () => {
       console.log(err)
     })
   }
-  const subject =[
-    {}
-  ]
   const handleClose = () => setShow(false);
 
   const handleShow = () => setShow(true);
@@ -112,7 +132,7 @@ const Main = () => {
       end:info.event.endStr,
       title:info.event._def.title,
       user:user_id, //<-- Problem !!!!!
-      color:localStorage.getItem('color')
+      color:info.event.backgroundColor
     }
     console.log(value)
     const idl=value.id
@@ -155,8 +175,7 @@ const Main = () => {
             <ul>
               <li>Adele</li>
               <li>Agnes</li>
-              <li>Billy</li>
-              <li>Bob</li>
+
             </ul>
           </div>
           <div className='Riminder'>
@@ -214,15 +233,17 @@ const Main = () => {
 
               <Modal show={showevent} onHide={handleCloseevent}>
                     <Modal.Header closeButton>
-                      <Modal.Title>Show event</Modal.Title>
+                      <Modal.Title>{localStorage.getItem('title')}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <h1>{localStorage.getItem('title')}
-                        <CreateIcon>
-
-                        </CreateIcon>
-                      </h1>
-
+                      <input name = 'title' placeholder='Edit this event'onChange = {onChangeValues}></input>
+                      <select type ='color' name ='color' onChange = {onChangeValues} >
+                        <option value=''>--Select tag--</option>
+                        <option value='#4285F4'>blue</option>
+                        <option value='#DB4437'>red</option>
+                        <option value ='#8DDD6A'>green</option>
+                        <option value='#FFBD59'>orange</option>
+                      </select>
                     </Modal.Body>
                     <Modal.Footer>
                       <Button variant="danger" onClick={handdleDelete}>Delete
