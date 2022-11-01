@@ -1,6 +1,5 @@
 import { config } from "@fullcalendar/react";
 import axios from "axios";
-const idp=localStorage.getItem('eventid')
 const jwt = localStorage.getItem('token')
 export const createEvent = async(values)=>
                                                                   //get header
