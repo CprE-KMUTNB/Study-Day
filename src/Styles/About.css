@@ -1,6 +1,8 @@
 .About{
   display: flex;
   width: 100%;
+  font-style: bold;
+  font-family: 'Inter', sans-serif;
   justify-content: space-between;
 }
 
@@ -104,10 +106,12 @@
 .Mile img {width: 100%;border-radius: 10px;}
 
 .container {
+  font-style: bold;
   text-align: center;
   padding: 10px 10px;
 }
 .container span{
+  
   margin-right: 0%;
 }
 
@@ -117,7 +121,6 @@
   border-radius: 10px;
   margin-left: 27%;
   margin-top: 40px;
-
   width: 35%;
   background-color: whitesmoke;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

@@ -3,6 +3,8 @@
   height: 100px;
   background-color: white;
   display: flex;
+  font-style: bold;
+  font-family: 'Inter', sans-serif;
   flex-direction: row;
 }
 
