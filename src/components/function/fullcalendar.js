@@ -13,3 +13,15 @@ export const updateEvent = async(values,idl)=>
 
 export const deleteEvent = async(values)=>
     await axios.delete('http://127.0.0.1:8000/home/calender/'+values+'/',{headers:{authorization:`Bearer ${jwt}`}});  
+
+//-------
+
+export const createSubject = async(values)=>
+                                                                  //get header
+    await axios.post('http://127.0.0.1:8000/add/subject/',values,{headers:{authorization:`Bearer ${jwt}`}}); 
+
+export const listSubject = async()=>
+    await axios.get('http://127.0.0.1:8000/add/subject/', {headers:{authorization:`Bearer ${jwt}`}}); 
+
+export const deleteSubject = async(values)=>
+    await axios.delete('http://127.0.0.1:8000/add/subject/'+values+'/',{headers:{authorization:`Bearer ${jwt}`}});  

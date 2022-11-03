@@ -9,8 +9,8 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
 import Form from 'react-bootstrap/Form';
 import CreateIcon from '@mui/icons-material/Create';
-
-import {createEvent , listEvent ,updateEvent,deleteEvent} from '../components/function/fullcalendar';
+import subjecetcom from '../components/subject'
+import {createEvent , listEvent ,updateEvent,deleteEvent ,createSubject ,listSubject} from '../components/function/fullcalendar';
 
 import {useNavigate} from 'react-router-dom'
 
@@ -77,12 +77,13 @@ const Main = () => {
   }
 
   useEffect(()=>{
-    console.log(events)
+    loadDatasubject()
     loadData()
 
   },[])
 
   const loadData=()=>{
+
     listEvent()
     .then(res=>{
       console.log(res)
@@ -157,23 +158,50 @@ const Main = () => {
 
 
   }
+
+//------ Subject
+
+const [subject, setSubject] = useState([]);
+const [subjectvalue,setSubjectvalue] = useState({
+  "user": user_id, // <-- Problem
+  subject:'',
+  
+})
+  const  sentsubject =(info)=>{
+    console.log(subjectvalue)
+    createSubject(subjectvalue)
+  }
+  const onChangeValuessubject=(e)=>{
+    console.log(e.target.value)
+    setSubjectvalue({...subjectvalue,[e.target.name]:e.target.value})
+  }
+  const loadDatasubject=()=>{
+    listSubject()
+    .then(res=>{
+      console.log(res)
+      setSubject(res.data)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   return (
     <div className='componentmain'>
       <div className='leftside'>
           <h1>Welcome {localStorage.getItem('username')}</h1>
           <div className='Subject'>
             <h1>Subject</h1>
-            <input name = 'Enter subject'  placeholder='title'/>
-            <select type ='color' name ='color' onChange = {onChangeValues} >
+            <input name = 'subject'  placeholder='title' onChange = {onChangeValuessubject} />
+            <select type ='color' name ='color' onChange = {onChangeValuessubject} >
                       <option value=''>--Select tag--</option>
                       <option value='#4285F4'>blue</option>
                       <option value='#DB4437'>red</option>
                       <option value ='#8DDD6A'>green</option>
                       <option value='#FFBD59'>orange</option>
             </select>
-            <Button variant="primary" >Ok</Button>
+            <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
-              <li id='1' style={{backgroundColor :'#DB4437' , borderRadius:'5px' , width:'50%' ,margin: '4%'}}>Discrete math</li>
+              <li id='1' style={{backgroundColor :'#DB4437' , borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{}</li>
               <li id='2' style={{backgroundColor :'#4285F4' , borderRadius:'5px' , width:'50%',margin: '4%'} }>Statistic</li>
               <li id ='3'style={{backgroundColor :'#FFBD59' , borderRadius:'5px' , width:'50%',margin: '4%'} }>Logic</li>
             </ul>
