@@ -202,7 +202,7 @@ const Main = () => {
             </select>
             <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
-            {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{subject.subject}</li>)}
+              {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{subject.subject}</li>)}
             </ul>
             
           </div>
