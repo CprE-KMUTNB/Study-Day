@@ -7,10 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
-import Form from 'react-bootstrap/Form';
-import CreateIcon from '@mui/icons-material/Create';
-import subjecetcom from '../components/subject'
-import {createEvent , listEvent ,updateEvent,deleteEvent ,createSubject ,listSubject} from '../components/function/fullcalendar';
+import BackspaceIcon from '@mui/icons-material/Backspace';
+import {createEvent , listEvent ,updateEvent,deleteEvent ,createSubject ,listSubject, deleteSubject} from '../components/function/fullcalendar';
 
 import {useNavigate} from 'react-router-dom'
 
@@ -183,8 +181,10 @@ const Main = () => {
       console.log(err)
     })
   }
-  var arr =console.log(subject)
   
+  const delSubject =() =>{
+  
+  }
   
   return (
     <div className='componentmain'>
@@ -202,8 +202,10 @@ const Main = () => {
             </select>
             <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
-              {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{subject.subject}</li>)}
+              {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>
+                {subject.subject}<button style={{backgroundColor: 'transparent',border: 'none'}} onClick={delSubject} ><BackspaceIcon style={{fontSize:'small',margin: '3%' }}></BackspaceIcon></button></li>)}
             </ul>
+            
             
           </div>
           <div className='Riminder'>

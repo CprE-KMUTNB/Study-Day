@@ -35,6 +35,7 @@ function Navbar() {
                 <div className='rightSide' >
                   <Link to='/'> Home</Link>
                   <Link to='/about'> About us</Link>
+                  <Link to='/main'> Main</Link>
                   <Link onClick={logout} to='/login'>  Logout   </Link>
 
                   <button onClick={toggleNavbar}>
