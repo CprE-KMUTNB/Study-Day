@@ -59,7 +59,7 @@ const Main = () => {
     end:'',
   })
   const [events, setEvents] = useState([]);
-
+  
   const hadleClick = (info)=>{
     console.log(info)
     handleShowevent()
@@ -161,12 +161,11 @@ const Main = () => {
 
 //------ Subject
 
-const [subject, setSubject] = useState([]);
-const [subjectvalue,setSubjectvalue] = useState({
-  "user": user_id, // <-- Problem
-  subject:'',
-  
-})
+  const [subject, setSubject] = useState([]);
+  const [subjectvalue,setSubjectvalue] = useState({
+    "user": user_id, 
+    subject:'',  
+  })
   const  sentsubject =(info)=>{
     console.log(subjectvalue)
     createSubject(subjectvalue)
@@ -184,7 +183,9 @@ const [subjectvalue,setSubjectvalue] = useState({
       console.log(err)
     })
   }
-
+  var arr =console.log(subject)
+  
+  
   return (
     <div className='componentmain'>
       <div className='leftside'>
@@ -201,10 +202,9 @@ const [subjectvalue,setSubjectvalue] = useState({
             </select>
             <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
-              <li id='1' style={{backgroundColor :'#DB4437' , borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{}</li>
-              <li id='2' style={{backgroundColor :'#4285F4' , borderRadius:'5px' , width:'50%',margin: '4%'} }>Statistic</li>
-              <li id ='3'style={{backgroundColor :'#FFBD59' , borderRadius:'5px' , width:'50%',margin: '4%'} }>Logic</li>
+            {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>{subject.subject}</li>)}
             </ul>
+            
           </div>
           <div className='Riminder'>
                 <h1>Reminder</h1>
