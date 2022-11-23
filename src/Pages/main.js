@@ -14,6 +14,7 @@ import {useNavigate} from 'react-router-dom'
 
 import '../Styles/Main.css'
 import { Cookie } from '@mui/icons-material'
+import { border } from '@mui/system'
 
 
 
@@ -75,11 +76,13 @@ const Main = () => {
   }
 
   useEffect(()=>{
-    loadDatasubject()
     loadData()
 
   },[])
+  useEffect(()=>{
+    loadDatasubject()
 
+  },[])
   const loadData=()=>{
 
     listEvent()
@@ -167,10 +170,24 @@ const Main = () => {
   const  sentsubject =(info)=>{
     console.log(subjectvalue)
     createSubject(subjectvalue)
+    .then (res=>{
+      loadDatasubject()
+      console.log(res.data)
+
+    }).catch(err=>{
+      console.log(err)
+    })
   }
   const onChangeValuessubject=(e)=>{
     console.log(e.target.value)
     setSubjectvalue({...subjectvalue,[e.target.name]:e.target.value})
+    .then (res=>{
+      loadDatasubject()
+      console.log(res.data)
+
+    }).catch(err=>{
+      console.log(err)
+    })
   }
   const loadDatasubject=()=>{
     listSubject()
@@ -182,8 +199,16 @@ const Main = () => {
     })
   }
   
-  const delSubject =() =>{
-  
+  const delSubject =(info) =>{
+    console.log(info.target)
+    deleteSubject(info.target.id)
+    .then (res=>{
+      loadDatasubject()
+      console.log(res.data)
+
+    }).catch(err=>{
+      console.log(err)
+    })
   }
   
   return (
@@ -195,15 +220,23 @@ const Main = () => {
             <input name = 'subject'  placeholder='title' onChange = {onChangeValuessubject} />
             <select type ='color' name ='color' onChange = {onChangeValuessubject} >
                       <option value=''>--Select tag--</option>
-                      <option value='#4285F4'>blue</option>
-                      <option value='#DB4437'>red</option>
-                      <option value ='#8DDD6A'>green</option>
-                      <option value='#FFBD59'>orange</option>
+                      <option value='#4285F4'>Blue</option>
+                      <option value='#DB4437'>Red</option>
+                      <option value ='#8DDD6A'>Green</option>
+                      <option value='#FFBD59'>Orange</option>
+                      <option value='#89CFF0'>Ocean blue</option>
+                      <option value='#FFDE59'>Yellow</option>
             </select>
             <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
-              {subject.map((subject) => <li style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>
-                {subject.subject}<button style={{backgroundColor: 'transparent',border: 'none'}} onClick={delSubject} ><BackspaceIcon style={{fontSize:'small',margin: '3%' }}></BackspaceIcon></button></li>)}
+              {subject.map((subject) => 
+              <li id = {subject.id} style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>
+                {subject.subject}
+                <button id = {subject.id} style ={{backgroundColor:'transparent',border:'none'}} onClick= {delSubject}>
+                  <BackspaceIcon id = {subject.id} style={{fontSize:'small',margin: '3%' }}>
+                  </BackspaceIcon>
+                </button>
+                </li>)}
             </ul>
             
             
@@ -241,13 +274,17 @@ const Main = () => {
                       <input name = 'title' onChange = {onChangeValues} placeholder='title'/>
                       <select type ='color' name ='color' onChange = {onChangeValues} >
                         <option value=''>--Select color--</option>
-                        <option value='#4285F4'>blue
+                        <option value='#4285F4'>Blue
                         </option>
-                        <option value='#DB4437'>red
+                        <option value='#DB4437'>Red
                         </option>
-                        <option value ='#8DDD6A'>green
+                        <option value ='#8DDD6A'>Green
                         </option>
-                        <option value='#FFBD59'>orange
+                        <option value='#FFBD59'>Orange
+                        </option>
+                        <option value='#89CFF0'>Ocean blue
+                        </option>
+                        <option value='#FFDE59'>Yellow
                         </option>
                       </select>
                     </Modal.Body>
@@ -269,10 +306,12 @@ const Main = () => {
                       <input name = 'title' placeholder='Edit this event'onChange = {onChangeValues}></input>
                       <select type ='color' name ='color' onChange = {onChangeValues} >
                         <option value=''>--Select tag--</option>
-                        <option value='#4285F4'>blue</option>
-                        <option value='#DB4437'>red</option>
-                        <option value ='#8DDD6A'>green</option>
-                        <option value='#FFBD59'>orange</option>
+                        <option value='#4285F4'>Blue</option>
+                        <option value='#DB4437'>Red</option>
+                        <option value ='#8DDD6A'>Green</option>
+                        <option value='#FFBD59'>Orange</option>
+                        <option value='#89CFF0'>Baby blue</option>
+                        <option value='#FFDE59'>Yellow</option>
                       </select>
                     </Modal.Body>
                     <Modal.Footer>
