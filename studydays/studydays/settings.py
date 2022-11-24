@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'login',
     'calender',
-    'subject'
+    'subject',
+    'reminder'
 ]
 
 MIDDLEWARE = [

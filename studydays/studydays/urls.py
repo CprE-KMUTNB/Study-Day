@@ -19,6 +19,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('login.urls')),
     path('home/', include('calender.urls')),
-    path('add/', include('subject.urls'))
-    
+    path('add/', include('subject.urls')),
+    path('add/', include('reminder.urls'))
 ]
