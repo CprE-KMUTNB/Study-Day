@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import {createEvent , listEvent ,updateEvent,deleteEvent ,createSubject ,listSubject, deleteSubject} from '../components/function/fullcalendar';
+import {createEvent , listEvent ,updateEvent,deleteEvent ,createSubject ,listSubject, deleteSubject,createReminder,listReminder,deleteReminder} from '../components/function/fullcalendar';
 
 import {useNavigate} from 'react-router-dom'
 
@@ -81,6 +81,10 @@ const Main = () => {
   },[])
   useEffect(()=>{
     loadDatasubject()
+
+  },[])
+  useEffect(()=>{
+    loadDatareminder()
 
   },[])
   const loadData=()=>{
@@ -210,7 +214,59 @@ const Main = () => {
       console.log(err)
     })
   }
-  
+
+//----------reminder
+
+
+
+const [reminder, setReminder] = useState([]);
+const [remindervalue,setRemindervalue] = useState({
+  "user": user_id, 
+  reminder:'',  
+})
+const  sentreminder =(info)=>{
+  console.log(remindervalue)
+  createReminder(remindervalue)
+  .then (res=>{
+    loadDatareminder()
+    console.log(res.data)
+
+  }).catch(err=>{
+    console.log(err)
+  })
+}
+const onChangeValuesreminder=(e)=>{
+  console.log(e.target.value)
+  setRemindervalue({...remindervalue,[e.target.name]:e.target.value})
+  .then (res=>{
+    loadDatareminder()
+    console.log(res.data)
+
+  }).catch(err=>{
+    console.log(err)
+  })
+}
+const loadDatareminder=()=>{
+  listReminder()
+  .then(res=>{
+    console.log(res)
+    setReminder(res.data)
+  }).catch(err=>{
+    console.log(err)
+  })
+}
+
+const delReminder =(info) =>{
+  console.log(info.target)
+  deleteReminder(info.target.id)
+  .then (res=>{
+    loadDatareminder()
+    console.log(res.data)
+
+  }).catch(err=>{
+    console.log(err)
+  })
+}
   return (
     <div className='componentmain'>
       <div className='leftside'>
@@ -230,7 +286,7 @@ const Main = () => {
             <Button variant="primary" onClick={sentsubject}>Ok</Button>
             <ul className='list'>
               {subject.map((subject) => 
-              <li id = {subject.id} style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%'}}>
+              <li id = {subject.id} style={{backgroundColor :subject.color, borderRadius:'5px' , width:'50%' ,margin: '4%' }}>
                 {subject.subject}
                 <button id = {subject.id} style ={{backgroundColor:'transparent',border:'none'}} onClick= {delSubject}>
                   <BackspaceIcon id = {subject.id} style={{fontSize:'small',margin: '3%' }}>
@@ -243,8 +299,18 @@ const Main = () => {
           </div>
           <div className='Riminder'>
                 <h1>Reminder</h1>
-                <input placeholder='Enter reminder'></input>
-                <Button variant="primary" >Ok</Button>
+                <input name = 'reminder'placeholder='Enter reminder' onChange = {onChangeValuesreminder} ></input>
+                <Button variant="primary" onClick={sentreminder}>Ok</Button>
+           <ul className='list1'>
+                {reminder.map((reminder) => 
+                <li id = {reminder.id} style={{borderRadius:'5px' , width:'50%' ,margin: '4%'}}>
+                  {reminder.reminder}
+                  <button id = {reminder.id} style ={{backgroundColor:'transparent',border:'none' }} onClick= {delReminder}>
+                    <BackspaceIcon id = {reminder.id} style={{fontSize:'small',margin: '3%' }}>
+                    </BackspaceIcon>
+                  </button>
+                  </li>)}
+              </ul>
           </div>
             
       </div>

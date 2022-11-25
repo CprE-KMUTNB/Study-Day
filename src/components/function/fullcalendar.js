@@ -25,3 +25,16 @@ export const listSubject = async()=>
 
 export const deleteSubject = async(values)=>
     await axios.delete('http://127.0.0.1:8000/add/subject/'+values+'/',{headers:{authorization:`Bearer ${jwt}`}});  
+
+
+//---------
+
+export const createReminder = async(values)=>
+                                                                  //get header
+    await axios.post('http://127.0.0.1:8000/add/reminder/',values,{headers:{authorization:`Bearer ${jwt}`}}); 
+
+export const listReminder = async()=>
+    await axios.get('http://127.0.0.1:8000/add/reminder/', {headers:{authorization:`Bearer ${jwt}`}}); 
+
+export const deleteReminder = async(values)=>
+    await axios.delete('http://127.0.0.1:8000/add/reminder/'+values+'/',{headers:{authorization:`Bearer ${jwt}`}});
