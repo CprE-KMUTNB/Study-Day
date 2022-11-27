@@ -52,6 +52,7 @@ function Login_page(){
                 localStorage.setItem('userid',result.id) //<-- When logic there's no id
                 localStorage.setItem('username',result.username)
                 navigate('/main')
+                window.location.reload();  //<== refres after logedin
                 })
 
             }

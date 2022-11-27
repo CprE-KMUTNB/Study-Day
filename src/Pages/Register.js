@@ -45,9 +45,15 @@ function Register_page(){
             if (result.id) {
                 navigate('/regist_complete')
             }
-            else {
+            else if (result.username){
               MySwal.fire({
                   html: <i>{result.email}</i>,
+                  icon: 'error'
+                })
+          }
+            else {
+              MySwal.fire({
+                  html: <i>{result.username}</i>,
                   icon: 'error'
                 })
           }
